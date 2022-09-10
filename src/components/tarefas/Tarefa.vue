@@ -1,8 +1,6 @@
 <template>
     <div>
-        <v-list-item
-        :class="{'blue lighten-4': tarefa.concluido }"
-        @click="tarefa.concluido = !tarefa.concluido">
+        <v-list-item :class="{'blue lighten-4': tarefa.concluido }" @click="tarefa.concluido = !tarefa.concluido">
             <template v-slot:default="{}">
                 <v-list-item-action>
                     <v-checkbox :input-value="tarefa.concluido"></v-checkbox>
@@ -13,14 +11,25 @@
                         {{ tarefa.titulo }}
                     </v-list-item-title>
                 </v-list-item-content>
+                <v-list-item-action>
+                    <v-btn icon @click.stop="handleRemoveTarefa(tarefa.id)">
+                        <v-icon color="red darken-2">mdi-delete</v-icon>
+                    </v-btn>
+                </v-list-item-action>
             </template>
         </v-list-item>
+        <v-divider />
     </div>
 </template>
 
 <script>
 export default {
- props: ['tarefa']
+    props: ['tarefa'],
+    methods: {
+        handleRemoveTarefa(id) {
+            this.$store.commit('removeTarefa', id);
+        }
+    }
 }
 </script>
 

@@ -30,7 +30,7 @@
       handleAddTarefa(){
         this.$store.commit('adicionaTarefa', this.tarefaCampoInput);
         this.tarefaCampoInput = '';
-      }
+      },
     }
   }
 </script>
