@@ -13,7 +13,7 @@ export default new Vuex.Store({
   },
   mutations: {
     adicionaTarefa(state, titulo){
-      if(titulo){
+      if(titulo && titulo.trim()){
         state.tarefas.push({
           id: new Date().getTime(),
           titulo, 
