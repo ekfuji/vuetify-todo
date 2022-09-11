@@ -21,11 +21,9 @@
     components: {
       Tarefa
     },
-    data(){
-      return {
+    data: () => ({
         tarefaCampoInput: '',
-      }
-    },
+    }),
     methods: {
       handleAddTarefa(){
         this.$store.commit('adicionaTarefa', this.tarefaCampoInput);
