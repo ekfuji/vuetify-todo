@@ -1,7 +1,7 @@
 # vue-todo
 <p align="center">
   <a>
-    <img alt="Keikoramica" src="https://user-images.githubusercontent.com/32462258/189515416-8e2443f3-d074-4a0d-969f-aed53e985d80.png" width="220" />
+    <img alt="Vue Todo" src="https://user-images.githubusercontent.com/32462258/189515901-f4e531c5-146f-454b-bc44-58d6643027db.png" width="220" />
   </a>
 
 <p align="center">
