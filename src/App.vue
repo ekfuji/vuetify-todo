@@ -14,7 +14,7 @@
             Vue.js
           </v-list-item-title>
           <v-list-item-subtitle>
-            Listas de tarefas
+            Lista de tarefas
           </v-list-item-subtitle>
         </v-list-item-content>
       </v-list-item>
@@ -70,7 +70,6 @@ export default {
         drawer: null,
         items: [
             { title: "Tarefas", icon: "mdi-view-dashboard", to: "/" },
-            { title: "Sobre", icon: "mdi-help-box", to: "/sobre" },
         ],
         right: null,
     }),
