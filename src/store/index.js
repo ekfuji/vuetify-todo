@@ -26,23 +26,26 @@ export default new Vuex.Store({
         })
       }
     },
-    removeTarefa(state, id){
-      if(id){
-       state.tarefas = state.tarefas.filter(t => t.id !== id);
-      }
-    },
-    editaTarefa(state, novaTarefa){
-      if(novaTarefa && novaTarefa.titulo.trim()){
-         let tarefa = state.tarefas.filter(t => t.id == novaTarefa.id)[0];
-         tarefa.titulo = novaTarefa.titulo;
-       }
-    }
   },
   actions: {
     async adicionaTarefa({commit}, titulo){
      await commit('adicionaTarefa', titulo);
      await commit('buscaTarefas')
-    }
+    },
+    editaTarefa({commit}, novaTarefa){
+      if(novaTarefa && novaTarefa.titulo.trim()){
+        db.collection('tarefas').doc({ id: novaTarefa.id }).update({
+          titulo: novaTarefa.titulo
+        }).then(() => {
+          commit('buscaTarefas');
+        });
+      }
+     },
+     removeTarefa({commit}, id){
+      db.collection('tarefas').doc({ id: id }).delete().then(() => {
+        commit('buscaTarefas');
+      });
+     }
   },
   modules: {
   }
