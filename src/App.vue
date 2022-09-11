@@ -1,7 +1,14 @@
 <template>
   <v-app id="inspire">
     <v-navigation-drawer v-model="drawer" app>
-      <v-list-item>
+      <v-img src="@/assets/bg.jpg"
+      dark 
+      gradient="to top right, rgba(55,236,186,.7), rgba(25,32,72,.7)"
+      class="pt-5 text-center">
+      <v-avatar size="100">
+        <img src="@/assets/avatar.jpeg" alt="John">
+      </v-avatar>
+        <v-list-item>
         <v-list-item-content>
           <v-list-item-title class="text-h6">
             Vue.js
@@ -11,7 +18,7 @@
           </v-list-item-subtitle>
         </v-list-item-content>
       </v-list-item>
-
+      </v-img>
       <v-divider></v-divider>
 
       <v-list dense nav>
@@ -26,12 +33,6 @@
         </v-list-item>
       </v-list>
     </v-navigation-drawer>
-
-    <!-- <v-app-bar app>
-      <v-app-bar-nav-icon @click="drawer = !drawer"></v-app-bar-nav-icon>
-
-      <v-toolbar-title>Application</v-toolbar-title>
-    </v-app-bar> -->
 
     <v-app-bar
       color="#43a047"
@@ -75,7 +76,7 @@
 <script>
 export default {
   data: () => ({
-    drawer: null,
+    drawer: true,
     items: [
       { title: 'Tarefas', icon: 'mdi-view-dashboard', to: '/' },
       { title: 'Sobre', icon: 'mdi-help-box', to: '/sobre' },
