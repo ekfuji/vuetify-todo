@@ -13,7 +13,7 @@
   <img alt="Made By" src="https://img.shields.io/static/v1?label=Made%20By&message=Estefani%20Fujimoto%20&color=orange&style=for-the-badge">
 	</a>
   
-  <img alt="Languages" src="https://img.shields.io/github/languages/count/ekfuji/Estoque?style=for-the-badge">
+  <img alt="Languages" src="https://img.shields.io/github/languages/count/ekfuji/vuetify-todo?style=for-the-badge">
   
   <img alt="Top Language" src="https://img.shields.io/github/languages/top/ekfuji/vuetify-todo?style=for-the-badge">
   
