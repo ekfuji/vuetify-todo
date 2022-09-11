@@ -3,7 +3,7 @@
     <v-navigation-drawer v-model="drawer" app>
       <v-img src="@/assets/bg.jpg"
       dark 
-      gradient="to top right, rgba(55,236,186,.7), rgba(25,32,72,.7)"
+      gradient="to top right, rgba(25,32,72,.7), rgba(55,236,186,.7)"
       class="pt-5 text-center">
       <v-avatar size="100">
         <img src="@/assets/avatar.jpeg" alt="John">
@@ -36,6 +36,7 @@
 
     <v-app-bar
       color="#43a047"
+      height="190"
       dark
       prominent
       src="@/assets/bg.jpg"
@@ -49,22 +50,11 @@
       </template>
 
       <v-app-bar-nav-icon @click="drawer = !drawer"></v-app-bar-nav-icon>
-
-      <v-app-bar-title>Title</v-app-bar-title>
-
-      <v-spacer></v-spacer>
-
-      <v-btn icon>
-        <v-icon>mdi-magnify</v-icon>
-      </v-btn>
-
-      <v-btn icon>
-        <v-icon>mdi-heart</v-icon>
-      </v-btn>
-
-      <v-btn icon>
-        <v-icon>mdi-dots-vertical</v-icon>
-      </v-btn>
+      <center>
+        <v-app-bar-title class="mt-16">
+        <InputTarefa/>
+      </v-app-bar-title>
+      </center>
     </v-app-bar>
 
     <v-main>
@@ -74,14 +64,16 @@
 </template>
 
 <script>
+import InputTarefa from './components/tarefas/InputTarefa.vue';
 export default {
-  data: () => ({
-    drawer: true,
-    items: [
-      { title: 'Tarefas', icon: 'mdi-view-dashboard', to: '/' },
-      { title: 'Sobre', icon: 'mdi-help-box', to: '/sobre' },
-    ],
-    right: null,
-  }),
+    data: () => ({
+        drawer: null,
+        items: [
+            { title: "Tarefas", icon: "mdi-view-dashboard", to: "/" },
+            { title: "Sobre", icon: "mdi-help-box", to: "/sobre" },
+        ],
+        right: null,
+    }),
+    components: { InputTarefa }
 }
 </script>

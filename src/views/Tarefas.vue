@@ -1,11 +1,16 @@
 <template>
   <div>
-    <v-col cols="12">
-      <v-text-field v-model="tarefaCampoInput" label="Qual a sua tarefa?" outlined clearable
-        @keyup.enter="handleAddTarefa">
-      </v-text-field>
-    </v-col>
     <ListaDeTarefas />
+    <div v-if="!$store.state.tarefas.length" class="mt-16 animate__animated animate__bounceInUp">
+      <center>
+        <v-icon size="100" color="primary">
+          mdi-check
+        </v-icon>
+        <div class="text-h5 primary--text">
+          Nenhuma tarefa
+        </div>
+      </center>
+    </div>
   </div>
 </template>
 
@@ -14,19 +19,10 @@ import ListaDeTarefas from '@/components/tarefas/ListaDeTarefas.vue';
 export default {
   name: 'Home',
   components: {
-    ListaDeTarefas
-  },
-  data: () => ({
-    tarefaCampoInput: '',
-  }),
+    ListaDeTarefas,
+},
   created() {
     this.$store.commit('buscaTarefas');
   },
-  methods: {
-    handleAddTarefa() {
-      this.$store.dispatch('adicionaTarefa', this.tarefaCampoInput);
-      this.tarefaCampoInput = '';
-    },
-  }
 }
 </script>

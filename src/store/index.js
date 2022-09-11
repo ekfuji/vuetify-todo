@@ -45,6 +45,13 @@ export default new Vuex.Store({
       db.collection('tarefas').doc({ id: id }).delete().then(() => {
         commit('buscaTarefas');
       });
+     },
+     mudarConclusaoDaTarefa({commit}, tarefa){
+      db.collection('tarefas').doc({ id: tarefa.id }).update({
+        concluido: tarefa.concluido
+      }).then(() => {
+        commit('buscaTarefas');
+      });
      }
   },
   modules: {

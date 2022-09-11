@@ -1,9 +1,9 @@
 <template>
     <div>
-        <v-list-item :class="{'blue lighten-4': tarefa.concluido }" @click="tarefa.concluido = !tarefa.concluido">
+        <v-list-item :class="{'blue lighten-4': tarefa.concluido }" @click="handleConcluido">
             <template v-slot:default="{}">
                 <v-list-item-action>
-                    <v-checkbox :input-value="tarefa.concluido"></v-checkbox>
+                    <v-checkbox :input-value="tarefa.concluido"  @click="handleConcluido"></v-checkbox>
                 </v-list-item-action>
 
                 <v-list-item-content>
@@ -28,8 +28,13 @@ export default {
         TarefaMenu,
     },
     methods: {
-        handleRemoveTarefa(id) {
-            this.$store.commit('removeTarefa', id);
+        handleConcluido(){
+            let novaTarefa = {
+                titulo: this.tarefa.titulo,
+                id: this.tarefa.id,
+                concluido: !this.tarefa.concluido
+            }
+            this.$store.dispatch('mudarConclusaoDaTarefa', novaTarefa);
         }
     }
 }
