@@ -24,9 +24,12 @@
     data: () => ({
         tarefaCampoInput: '',
     }),
+    created(){
+      this.$store.commit('buscaTarefas');
+    },
     methods: {
       handleAddTarefa(){
-        this.$store.commit('adicionaTarefa', this.tarefaCampoInput);
+        this.$store.dispatch('adicionaTarefa', this.tarefaCampoInput);
         this.tarefaCampoInput = '';
       },
     }

@@ -1,6 +1,8 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
+import LocalBase from 'localbase'
 
+let db = new LocalBase('db')
 Vue.use(Vuex)
 
 export default new Vuex.Store({
@@ -10,9 +12,14 @@ export default new Vuex.Store({
   getters: {
   },
   mutations: {
+    buscaTarefas(state){
+      db.collection('tarefas').get().then(tarefasDB => {
+        state.tarefas = tarefasDB;
+      })
+    },
     adicionaTarefa(state, titulo){
       if(titulo && titulo.trim()){
-        state.tarefas.push({
+        db.collection('tarefas').add({
           id: new Date().getTime(),
           titulo, 
           concluido: false
@@ -32,6 +39,10 @@ export default new Vuex.Store({
     }
   },
   actions: {
+    async adicionaTarefa({commit}, titulo){
+     await commit('adicionaTarefa', titulo);
+     await commit('buscaTarefas')
+    }
   },
   modules: {
   }
