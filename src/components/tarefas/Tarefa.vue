@@ -12,7 +12,7 @@
                     </v-list-item-title>
                 </v-list-item-content>
                 <v-list-item-action>
-                    <TarefaMenu/>
+                    <TarefaMenu :tarefa="tarefa"/>
                 </v-list-item-action>
             </template>
         </v-list-item>

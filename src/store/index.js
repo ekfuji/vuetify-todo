@@ -5,9 +5,7 @@ Vue.use(Vuex)
 
 export default new Vuex.Store({
   state: {
-    tarefas: [
-      { id: 1, titulo: 'Ir ao mercado', concluido: false }
-    ]
+    tarefas: []
   },
   getters: {
   },
@@ -25,6 +23,12 @@ export default new Vuex.Store({
       if(id){
        state.tarefas = state.tarefas.filter(t => t.id !== id);
       }
+    },
+    editaTarefa(state, novaTarefa){
+      if(novaTarefa && novaTarefa.titulo.trim()){
+         let tarefa = state.tarefas.filter(t => t.id == novaTarefa.id)[0];
+         tarefa.titulo = novaTarefa.titulo;
+       }
     }
   },
   actions: {
